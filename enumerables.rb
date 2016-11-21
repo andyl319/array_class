@@ -1,4 +1,3 @@
-require 'byebug'
 
 class Array
 
@@ -18,93 +17,6 @@ class Array
     arr
   end
 
-  def my_reject(&prc)
-    result = []
-
-    self.my_each do |x|
-        if (!prc.call(x))
-          result << x
-        end
-      end
-      result
-    end
-
-
-  def my_any?(&prc)
-    self.my_each do |x|
-      if prc.call(x)
-        return true
-      end
-    end
-    false
-  end
-
-  def my_all?(&prc)
-    self.my_each do |x|
-      if prc.call(x)
-        next
-      else
-        return false
-      end
-    end
-    true
-  end
-
-  def my_flatten
-
-    arr = []
-    self.my_each do |x|
-
-      if(x.class == Array)
-        arr.concat(x.my_flatten)
-      else
-        arr.push(x)
-      end
-
-    end
-    arr
-  end
-
-  def my_zip(*arr)
-    result = []
-    self.each_index do |i|
-      result.push([self[i]])
-      arr.each do |array|
-        result[i].push(array[i])
-      end
-    end
-    result
-  end
-
-  def my_rotate(num = 1)
-    arr = self.dup
-
-    if num > 0
-      num.times { arr.push(arr.shift) }
-    else
-      (num * -1).times { arr.unshift(arr.pop) }
-    end
-    arr
-  end
-
-  def my_join(char="")
-    new_string = ""
-    self.each_with_index do |letter, idx|
-      if idx == self.length - 1
-        new_string << letter
-      else
-        new_string << letter + char
-      end
-    end
-    new_string
-  end
-
-  def my_reverse
-    new_array = []
-    for x in (self.length - 1).downto(0)
-      new_array << self[x]
-    end
-    new_array
-  end
+  
 
 end

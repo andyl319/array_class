@@ -63,6 +63,17 @@ class Array
     arr
   end
 
+  def my_zip(*arr)
+    result = []
+    self.each_index do |i|
+      result.push([self[i]])
+      arr.each do |array|
+        result[i].push(array[i])
+      end
+    end
+    result
+  end
+
   
 
 

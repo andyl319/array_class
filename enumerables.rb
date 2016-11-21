@@ -48,6 +48,21 @@ class Array
     true
   end
 
+  def my_flatten
+
+    arr = []
+    self.my_each do |x|
+
+      if(x.class == Array)
+        arr.concat(x.my_flatten)
+      else
+        arr.push(x)
+      end
+
+    end
+    arr
+  end
+
   
 
 

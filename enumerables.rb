@@ -74,6 +74,17 @@ class Array
     result
   end
 
+  def my_rotate(num = 1)
+    arr = self.dup
+
+    if num > 0
+      num.times { arr.push(arr.shift) }
+    else
+      (num * -1).times { arr.unshift(arr.pop) }
+    end
+    arr
+  end
+
   
 
 

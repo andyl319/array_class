@@ -28,7 +28,27 @@ class Array
     result
   end
 
+  def my_any?(&prc)
+    self.my_each do |x|
+      if prc.call(x)
+        return true
+      end
+    end
+    false
+  end
+
+  def my_all?(&prc)
+    self.my_each do |x|
+      if prc.call(x)
+        next
+      else
+        return false
+      end
+    end
+    true
+  end
 
   
+
 
 end

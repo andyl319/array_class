@@ -85,7 +85,25 @@ class Array
     arr
   end
 
-  
+  def my_join(char="")
+    new_string = ""
+    self.each_with_index do |letter, idx|
+      if idx == self.length - 1
+        new_string << letter
+      else
+        new_string << letter + char
+      end
+    end
+    new_string
+  end
+
+  def my_reverse
+    new_array = []
+    for x in (self.length - 1).downto(0)
+      new_array << self[x]
+    end
+    new_array
+  end
 
 
 end
